@@ -7,13 +7,12 @@ import Products from './components/Products/Products';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
-  const [categories, setCategories] = useState();
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
     fetch('https://bootcampapi.techcs.io/api/fe/v1/detail/category/all')
       .then((response) => response.json())
       .then((data) => setCategories(data));
   }, []);
-  console.log(categories);
 
   return (
     <div className="App">
