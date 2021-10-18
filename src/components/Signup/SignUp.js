@@ -1,7 +1,8 @@
 import React from 'react';
 import './SignUp.scss';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo.svg';
 import aside from '../../assets/aside.png';
+import { Link } from 'react-router-dom';
 
 function Signup() {
   return (
@@ -44,9 +45,9 @@ function Signup() {
                   <div className="text-center">
                     <h4>
                       Hesabın var mı?{' '}
-                      <a href="google.com" className="dablue">
+                      <Link to="/login" className="dablue">
                         Giriş yap
-                      </a>{' '}
+                      </Link>
                     </h4>
                   </div>
                 </form>
