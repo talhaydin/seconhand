@@ -3,7 +3,7 @@ import './Products.scss';
 import Banner1 from '../../assets/Banner1.png';
 import { v4 as uuidv4 } from 'uuid';
 
-function Products({ categories }) {
+function Products({ categories, products }) {
   return (
     <div className="products-container">
       <div className="products-content">
@@ -16,6 +16,20 @@ function Products({ categories }) {
             </li>
           ))}
         </ul>
+        <div className="products-cards-layout">
+          {products.map((item) => (
+            <div className="products-cards" key={uuidv4()}>
+              <img src={item.imageUrl} alt="card" className="card-image"></img>
+              <div className="flexspan">
+                <span className="capitalize itembrand">{item.brand.title}</span>{' '}
+                <span className="capitalize">Renk: {item.color.title}</span>
+              </div>
+              <div>
+                <p>{item.price},00 TL</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -8,11 +8,20 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
   const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
+
   useEffect(() => {
     fetch('https://bootcampapi.techcs.io/api/fe/v1/detail/category/all')
       .then((response) => response.json())
       .then((data) => setCategories(data));
   }, []);
+
+  useEffect(() => {
+    fetch('https://bootcampapi.techcs.io/api/fe/v1/product/all')
+      .then((response) => response.json())
+      .then((data) => setProducts(data));
+  }, []);
+  console.log(products);
 
   return (
     <div className="App">
@@ -27,7 +36,7 @@ function App() {
           </Route>
           <Route exact path="/products">
             <Header></Header>
-            <Products categories={categories}></Products>
+            <Products categories={categories} products={products}></Products>
           </Route>
         </Switch>
       </Router>
