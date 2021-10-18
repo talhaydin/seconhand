@@ -1,6 +1,7 @@
 import React from 'react';
 import './Products.scss';
 import Banner1 from '../../assets/Banner1.png';
+import { v4 as uuidv4 } from 'uuid';
 
 function Products({ categories }) {
   return (
@@ -10,7 +11,9 @@ function Products({ categories }) {
         <ul>
           <li>Hepsi</li>
           {categories.map((item) => (
-            <li>{item.title.charAt(0).toUpperCase() + item.title.slice(1)}</li>
+            <li key={uuidv4()}>
+              {item.title.charAt(0).toUpperCase() + item.title.slice(1)}
+            </li>
           ))}
         </ul>
       </div>
