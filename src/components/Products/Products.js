@@ -2,6 +2,7 @@ import React from 'react';
 import './Products.scss';
 import Banner1 from '../../assets/Banner1.png';
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 
 function Products({ categories, products }) {
   return (
@@ -18,16 +19,24 @@ function Products({ categories, products }) {
         </ul>
         <div className="products-cards-layout">
           {products.map((item) => (
-            <div className="products-cards" key={uuidv4()}>
-              <img src={item.imageUrl} alt="card" className="card-image"></img>
-              <div className="flexspan">
-                <span className="capitalize itembrand">{item.brand.title}</span>{' '}
-                <span className="capitalize">Renk: {item.color.title}</span>
+            <Link to={`/products/${item.id}`}>
+              <div className="products-cards" key={uuidv4()}>
+                <img
+                  src={item.imageUrl}
+                  alt="card"
+                  className="card-image"
+                ></img>
+                <div className="flexspan">
+                  <span className="capitalize itembrand">
+                    {item.brand.title}
+                  </span>{' '}
+                  <span className="capitalize">Renk: {item.color.title}</span>
+                </div>
+                <div>
+                  <p>{item.price},00 TL</p>
+                </div>
               </div>
-              <div>
-                <p>{item.price},00 TL</p>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

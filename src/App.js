@@ -4,6 +4,7 @@ import Login from './components/Login/Login';
 import SignUp from './components/Signup/SignUp';
 import Header from './components/Header/Header';
 import Products from './components/Products/Products';
+import ProductDetails from './components/ProductDetails/ProductDetails';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -21,7 +22,6 @@ function App() {
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);
-  console.log(products);
 
   return (
     <div className="App">
@@ -37,6 +37,10 @@ function App() {
           <Route exact path="/products">
             <Header></Header>
             <Products categories={categories} products={products}></Products>
+          </Route>
+          <Route path="/products/:id">
+            <Header></Header>
+            <ProductDetails></ProductDetails>
           </Route>
         </Switch>
       </Router>
