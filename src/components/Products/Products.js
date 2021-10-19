@@ -33,7 +33,7 @@ function Products({ categories, products }) {
                   <span className="capitalize">Renk: {item.color.title}</span>
                 </div>
                 <div>
-                  <p>{item.price},00 TL</p>
+                  <p>{item.price},00 ₺</p>
                 </div>
               </div>
             </Link>
