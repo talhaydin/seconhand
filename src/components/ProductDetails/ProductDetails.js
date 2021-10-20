@@ -1,4 +1,5 @@
 import React from 'react';
+import './ProductDetails.scss';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -15,8 +16,29 @@ function ProductDetails() {
   console.log(item);
 
   return (
-    <div>
-      <h1>{item.title}</h1>
+    <div className="product-details-layout">
+      <div className="product-details-container">
+        <div className="image-container">
+          <img src={item.imageUrl} alt="detailedimage"></img>
+        </div>
+
+        <div>
+          <h2>Beli Uzun Trençkot Kareli</h2>
+          <h3>
+            <div>
+              {' '}
+              Marka: <span>{item.brand.title}</span>
+            </div>
+            <div>
+              Renk: <span>{item.color.title}</span>
+            </div>
+            <div>
+              {' '}
+              Kullanım Durumu: <span>{item.status.title}</span>
+            </div>
+          </h3>
+        </div>
+      </div>
     </div>
   );
 }
