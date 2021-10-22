@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 function App() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     fetch('https://bootcampapi.techcs.io/api/fe/v1/detail/category/all')
@@ -32,14 +33,17 @@ function App() {
             <SignUp></SignUp>
           </Route>
           <Route exact path="/login">
-            <Login></Login>
+            <Login
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+            ></Login>
           </Route>
           <Route exact path="/products">
-            <Header></Header>
+            <Header isLoggedIn={isLoggedIn}></Header>
             <Products categories={categories} products={products}></Products>
           </Route>
           <Route path="/products/:id">
-            <Header></Header>
+            <Header isLoggedIn={isLoggedIn}></Header>
             <ProductDetails></ProductDetails>
           </Route>
         </Switch>

@@ -86,3 +86,33 @@
   height: 100%;
   background-color: white;
 }
+
+.toast {
+  display: flex;
+  align-items: center;
+  background: #ffe5e5 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 12px #1e36482e;
+  border-radius: 8px;
+  opacity: 1;
+  max-width: 321px;
+  max-height: 60px;
+  p {
+    text-align: left;
+    font: normal normal normal 16px/23px Nunito;
+    letter-spacing: 0px;
+    color: #f77474;
+    opacity: 1;
+  }
+  p {
+    text-align: left;
+    font: normal normal normal 16px/23px Nunito;
+    letter-spacing: 0px;
+    color: #f77474;
+    opacity: 1;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  img {
+    margin: 10px;
+  }
+}

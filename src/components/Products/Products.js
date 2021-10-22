@@ -5,6 +5,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 
 function Products({ categories, products }) {
+  const filteredProducts = [...products];
+
   return (
     <div className="products-container">
       <div className="products-content">
@@ -18,22 +20,24 @@ function Products({ categories, products }) {
           ))}
         </ul>
         <div className="products-cards-layout">
-          {products.map((item) => (
-            <Link to={`/products/${item.id}`}>
-              <div className="products-cards" key={uuidv4()}>
+          {filteredProducts.map((product) => (
+            <Link to={`/products/${product.id}`} key={uuidv4()}>
+              <div className="products-cards">
                 <img
-                  src={item.imageUrl}
+                  src={product.imageUrl}
                   alt="card"
                   className="card-image"
                 ></img>
                 <div className="flexspan">
                   <span className="capitalize itembrand">
-                    {item.brand.title}
+                    {product.brand.title}
                   </span>{' '}
-                  <span className="capitalize">Renk: {item.color.title}</span>
+                  <span className="capitalize">
+                    Renk: {product.color.title}
+                  </span>
                 </div>
                 <div>
-                  <p>{item.price},00 ₺</p>
+                  <p>{product.price},00 ₺</p>
                 </div>
               </div>
             </Link>
