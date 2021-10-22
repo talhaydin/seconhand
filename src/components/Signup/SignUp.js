@@ -4,14 +4,20 @@ import logo from '../../assets/logo.svg';
 import aside from '../../assets/aside.png';
 import toastalert from '../../assets/toastalert.png';
 import { Link, useHistory } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function Signup() {
+function Signup({ isLoggedIn }) {
   let history = useHistory();
   const [signUpMail, setSignUpMail] = useState('');
   const [signUpPw, setSignUpPw] = useState('');
   const [alert, setAlert] = useState(false);
   const [err, setErr] = useState('');
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      history.push('/products');
+    }
+  }, [isLoggedIn]);
 
   const handleSignup = (e) => {
     e.preventDefault();

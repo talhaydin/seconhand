@@ -13,6 +13,12 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
+    if (document.cookie.includes('auth_token')) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  useEffect(() => {
     fetch('https://bootcampapi.techcs.io/api/fe/v1/detail/category/all')
       .then((response) => response.json())
       .then((data) => setCategories(data));
@@ -26,11 +32,13 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Header /> */}
       <Router>
         <Switch>
           <Route exact path="/">
-            <SignUp></SignUp>
+            <SignUp
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+            ></SignUp>
           </Route>
           <Route exact path="/login">
             <Login

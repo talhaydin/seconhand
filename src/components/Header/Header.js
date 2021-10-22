@@ -3,8 +3,9 @@ import './Header.scss';
 import logo from '../../assets/logo.svg';
 import plussign from '../../assets/plussign.svg';
 import profile from '../../assets/profile.svg';
+import { Link } from 'react-router-dom';
 
-function Header() {
+function Header({ isLoggedIn }) {
   return (
     <div className="header">
       <div className="headerContent">
@@ -16,7 +17,7 @@ function Header() {
           </button>
           <button className="headerBtns dabluebg">
             <img src={plussign} alt="plussign" className="plussign" />
-            <span>Giriş Yap</span>
+            {isLoggedIn ? <span>Hesabım</span> : <span>Giriş Yap</span>}
           </button>
         </div>
       </div>

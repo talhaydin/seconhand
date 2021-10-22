@@ -8,6 +8,12 @@ import { Link, useHistory } from 'react-router-dom';
 function Login({ isLoggedIn, setIsLoggedIn }) {
   let history = useHistory();
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      history.push('/products');
+    }
+  }, [isLoggedIn]);
+
   const [loginMail, setLoginMail] = useState('');
   const [loginPw, setLoginPw] = useState('');
   const [alert, setAlert] = useState(false);
@@ -30,6 +36,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
         if (data.access_token) {
           history.push('/products');
           setIsLoggedIn(true);
+          document.cookie = 'auth_token=' + data.access_token;
         } else if (data.statusCode === 401) {
           setTimeout(() => {
             setAlert(true);
@@ -40,8 +47,6 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
         }
       });
   };
-
-  console.log(alert);
 
   return (
     <>
