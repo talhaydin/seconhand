@@ -31,7 +31,6 @@ function Signup({ isLoggedIn }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.access_token) {
           history.push('/login');
         } else if (data.statusCode === 409) {

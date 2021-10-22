@@ -27,7 +27,7 @@ function ProductDetails() {
             <img src={item.imageUrl} alt="detailedimage"></img>
           </div>
           <div>
-            <h2>Beli Uzun Trençkot Kareli</h2>
+            <h2>{item.title}</h2>
             <h3>
               <div>
                 Marka: <span>{item.brand.title}</span>
