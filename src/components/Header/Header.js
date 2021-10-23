@@ -17,7 +17,15 @@ function Header({ isLoggedIn }) {
           </button>
           <button className="headerBtns dabluebg">
             <img src={plussign} alt="plussign" className="plussign" />
-            {isLoggedIn ? <span>Hesabım</span> : <span>Giriş Yap</span>}
+            {isLoggedIn ? (
+              <Link to="/account">
+                <span>Hesabım</span>
+              </Link>
+            ) : (
+              <Link to="/login">
+                <span>Giriş Yap</span>
+              </Link>
+            )}
           </button>
         </div>
       </div>

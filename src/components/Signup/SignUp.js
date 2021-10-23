@@ -6,7 +6,7 @@ import toastalert from '../../assets/toastalert.png';
 import { Link, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-function Signup({ isLoggedIn }) {
+function Signup({ isLoggedIn, setIsLoggedIn }) {
   let history = useHistory();
   const [signUpMail, setSignUpMail] = useState('');
   const [signUpPw, setSignUpPw] = useState('');
@@ -32,7 +32,9 @@ function Signup({ isLoggedIn }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.access_token) {
-          history.push('/login');
+          history.push('/products');
+          setIsLoggedIn(true);
+          document.cookie = 'auth_token=' + data.access_token;
         } else if (data.statusCode === 409) {
           setErr(data.message);
           setTimeout(() => {
