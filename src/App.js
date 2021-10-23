@@ -16,7 +16,9 @@ function App() {
     if (document.cookie.includes('auth_token')) {
       setIsLoggedIn(true);
     }
-  }, []);
+  }, [document.cookie]);
+
+  console.log(document.cookie.slice(11));
 
   useEffect(() => {
     fetch('https://bootcampapi.techcs.io/api/fe/v1/detail/category/all')

@@ -27,7 +27,7 @@ function ProductDetails() {
             <img src={item.imageUrl} alt="detailedimage"></img>
           </div>
           <div>
-            <h2>{item.title}</h2>
+            <h2>Lorem ipsum dolor sit amet.</h2>
             <h3>
               <div>
                 Marka: <span>{item.brand.title}</span>
@@ -39,7 +39,18 @@ function ProductDetails() {
               <div>
                 Kullanım Durumu: <span>{item.status.title}</span>
               </div>
+              <div>
+                <h2>{item.price},00 ₺</h2>
+              </div>
+              <button className="btn-purchase">Satın Al</button>
+              <button className="btn-offer">Teklif Ver</button>
             </h3>
+            <h3>Açıklama:</h3>
+            <div className="product-specs">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. At,
+              dolorum! Doloribus eum deleniti quidem corrupti commodi minus
+              atque consequuntur nesciunt?
+            </div>
           </div>
         </div>
       </div>
