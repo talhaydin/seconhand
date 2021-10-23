@@ -13,7 +13,9 @@ function Header({ isLoggedIn }) {
         <div>
           <button className="headerBtns dabluebg">
             <img src={profile} alt="profile" className="profile" />
-            <span>Ürün Ekle</span>
+            <Link to="/addproduct">
+              <span>Ürün Ekle</span>
+            </Link>
           </button>
           <button className="headerBtns dabluebg">
             <img src={plussign} alt="plussign" className="plussign" />

@@ -98,7 +98,10 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                     </div>
                   ) : null}
 
-                  <button onClick={handleLogin}> Giriş Yap</button>
+                  <button type="submit" onClick={handleLogin}>
+                    {' '}
+                    Giriş Yap
+                  </button>
                   <div className="text-center">
                     <h4>
                       Hesabın yok mu?{' '}
