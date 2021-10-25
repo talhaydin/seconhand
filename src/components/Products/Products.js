@@ -3,10 +3,9 @@ import './Products.scss';
 import Banner1 from '../../assets/Banner1.png';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
-function Products({ categories, products }) {
-  const filteredProducts = [...products];
-
+function Products({ categories, products, setProducts }) {
   return (
     <div className="products-container">
       <div className="products-content">
@@ -20,7 +19,7 @@ function Products({ categories, products }) {
           ))}
         </ul>
         <div className="products-cards-layout">
-          {filteredProducts.map((product) => (
+          {products.map((product) => (
             <Link to={`/products/${product.id}`} key={uuidv4()}>
               <div className="products-cards">
                 <img

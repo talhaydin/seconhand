@@ -76,3 +76,76 @@
   font: normal normal bold 18px/24px Nunito;
   border: none;
 }
+
+.btn-notonsale {
+  width: 235px;
+  height: 45px;
+  letter-spacing: 0px;
+  background: #fff0e2 0% 0% no-repeat padding-box;
+  border-radius: 8px;
+  opacity: 1;
+  color: #faad60;
+  opacity: 1;
+  font: normal normal bold 18px/24px Nunito;
+  border: none;
+}
+
+.purchase-modal {
+  position: absolute;
+  max-width: 480px;
+  max-height: 461px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 25%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: papayawhip;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 12px #1e36482e;
+  border-radius: 10px;
+  opacity: 1;
+  .md-header {
+    margin: 26px;
+    h2 {
+      display: inline;
+      font: normal normal bold 25px/23px Nunito;
+      letter-spacing: 0px;
+      color: #525252;
+      opacity: 1;
+    }
+    button {
+      margin-left: 300px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+  .md-body {
+    display: flex;
+    margin: 26px;
+    background: #f0f8ff 0% 0% no-repeat padding-box;
+    align-items: center;
+    border-radius: 10px;
+    img {
+      margin-left: 4px;
+      max-width: 50px;
+      max-height: 50px;
+      border-radius: 8px;
+      margin-right: 10px;
+    }
+    h3 {
+      margin-left: auto;
+    }
+  }
+}
+
+.purchase-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(75, 157, 230, 0.7);
+}

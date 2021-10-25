@@ -7,6 +7,7 @@ import Products from './components/Products/Products';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AddProduct from './components/AddProduct/AddProduct';
+import Account from './components/Account/Account';
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -28,7 +29,9 @@ function App() {
   useEffect(() => {
     fetch('https://bootcampapi.techcs.io/api/fe/v1/product/all')
       .then((response) => response.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        setProducts(data);
+      });
   }, []);
 
   return (
@@ -49,7 +52,11 @@ function App() {
           </Route>
           <Route exact path="/products">
             <Header isLoggedIn={isLoggedIn}></Header>
-            <Products categories={categories} products={products}></Products>
+            <Products
+              categories={categories}
+              products={products}
+              setProducts={setProducts}
+            ></Products>
           </Route>
           <Route path="/products/:id">
             <Header isLoggedIn={isLoggedIn}></Header>
@@ -58,6 +65,10 @@ function App() {
           <Route path="/addproduct">
             <Header isLoggedIn={isLoggedIn}></Header>
             <AddProduct categories={categories}></AddProduct>
+          </Route>
+          <Route path="/account">
+            <Header isLoggedIn={isLoggedIn}></Header>
+            <Account></Account>
           </Route>
         </Switch>
       </Router>

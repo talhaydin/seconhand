@@ -2,11 +2,14 @@ import React from 'react';
 import './ProductDetails.scss';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Modal from 'react-modal';
 
 function ProductDetails() {
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+  const [purchaseModal, setPurchaseModal] = useState(false);
+  const [offerModal, setOfferModal] = useState(false);
 
   useEffect(() => {
     fetch(`https://bootcampapi.techcs.io/api/fe/v1/product/${id}`)
@@ -17,6 +20,11 @@ function ProductDetails() {
       });
   }, []);
 
+  function closeModal() {
+    setPurchaseModal(false);
+  }
+
+  console.log(item);
   if (loading === true) {
     return <div>Loading data...</div>;
   } else {
@@ -42,8 +50,37 @@ function ProductDetails() {
               <div>
                 <h2>{item.price},00 ₺</h2>
               </div>
-              <button className="btn-purchase">Satın Al</button>
-              <button className="btn-offer">Teklif Ver</button>
+              {item.isSold ? (
+                <button className="btn-notonsale">
+                  Bu ürün satışta değil{' '}
+                </button>
+              ) : (
+                <button
+                  className="btn-purchase"
+                  onClick={() => setPurchaseModal(true)}
+                >
+                  Satın Al
+                  <Modal
+                    isOpen={purchaseModal}
+                    className="purchase-modal"
+                    overlayClassName="purchase-modal-overlay"
+                    onRequestClose={closeModal}
+                    centered
+                  >
+                    <div className="md-header">
+                      <h2>Teklif Ver</h2>
+                    </div>
+                    <div className="md-body">
+                      <img src={item.imageUrl} alt="small item img" />
+                      <h4>{item.title}</h4>
+                      <h3>{item.price},00 ₺</h3>
+                    </div>
+                  </Modal>
+                </button>
+              )}
+              {item.isOfferable === true && item.isSold === false ? (
+                <button className="btn-offer">Teklif Ver</button>
+              ) : null}
             </h3>
             <h3>Açıklama:</h3>
             <div className="product-specs">

@@ -37,6 +37,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
           history.push('/products');
           setIsLoggedIn(true);
           document.cookie = 'auth_token=' + data.access_token;
+          localStorage.setItem('loginmail', loginMail);
         } else if (data.statusCode === 401) {
           setTimeout(() => {
             setAlert(true);
