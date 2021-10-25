@@ -141,7 +141,6 @@ function AddProduct({ categories }) {
                       },
                     })
                   }
-
                   // HERE HERE HERE HERE HERE HERE
                 >
                   {categories.map((item) => (
@@ -151,7 +150,21 @@ function AddProduct({ categories }) {
                   ))}
                 </select>
                 <label htmlFor="colors">Renk</label>
-                <select id="colors" name="colors" className="capitalize">
+                <select
+                  id="colors"
+                  name="colors"
+                  className="capitalize"
+                  value={newProduct.color.title}
+                  onChange={(e) =>
+                    setNewProduct({
+                      ...newProduct,
+                      color: {
+                        title: e.target.value,
+                        id: newProduct.color.id,
+                      },
+                    })
+                  }
+                >
                   {colors.map((item) => (
                     <option value={item.title} key={uuidv4()}>
                       {item.title}
@@ -164,13 +177,34 @@ function AddProduct({ categories }) {
                   id="title"
                   name="title"
                   placeholder="Bir fiyat girin "
+                  value={newProduct.price}
+                  onChange={(e) =>
+                    setNewProduct({
+                      ...newProduct,
+                      price: e.target.value,
+                    })
+                  }
                 />
               </form>
             </div>
             <div className="half-forms-right">
               <form>
                 <label htmlFor="brands">Marka</label>
-                <select id="brands" name="brands" className="capitalize">
+                <select
+                  id="brands"
+                  name="brands"
+                  className="capitalize"
+                  value={newProduct.brand.title}
+                  onChange={(e) =>
+                    setNewProduct({
+                      ...newProduct,
+                      brand: {
+                        title: e.target.value,
+                        id: newProduct.brand.id,
+                      },
+                    })
+                  }
+                >
                   {brands.map((item) => (
                     <option value={item.title} key={uuidv4()}>
                       {item.title}
@@ -178,7 +212,21 @@ function AddProduct({ categories }) {
                   ))}
                 </select>
                 <label htmlFor="status">Kullanım Durumu</label>
-                <select id="status" name="status" className="capitalize">
+                <select
+                  id="status"
+                  name="status"
+                  className="capitalize"
+                  value={newProduct.status.title}
+                  onChange={(e) =>
+                    setNewProduct({
+                      ...newProduct,
+                      status: {
+                        title: e.target.value,
+                        id: newProduct.status.id,
+                      },
+                    })
+                  }
+                >
                   {statuses.map((item) => (
                     <option value={item.title} key={uuidv4()}>
                       {item.title}
@@ -197,7 +245,14 @@ function AddProduct({ categories }) {
               type="text"
               id="productimage"
               name="productimage"
-              placeholder="Örnek: Ekose Pantolon"
+              placeholder="Örnek: https://picsum.photos/200/300"
+              value={newProduct.imageUrl}
+              onChange={(e) =>
+                setNewProduct({
+                  ...newProduct,
+                  imageUrl: e.target.value,
+                })
+              }
             />
           </form>
           <button onClick={addItems}>Kaydet</button>

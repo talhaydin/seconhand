@@ -31,8 +31,6 @@ function App() {
       .then((data) => setProducts(data));
   }, []);
 
-  console.log(products);
-
   return (
     <div className="App">
       <Router>
