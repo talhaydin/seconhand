@@ -6,4 +6,4 @@
 - CSS (SASS)
 - Javascript (React.js)
 
-This project is deployed to netlify. You can view a live demo over at ...
+This project is deployed to netlify. You can view a live demo over at https://lsecondhandl.netlify.app/
